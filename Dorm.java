@@ -53,8 +53,8 @@ public class Dorm {
 			
 	}
 	private static String name; //name of the dorm
-	//private Student resident;   //student type    //needs to be defined 
-	//private static Student[] roster; //array holding the names of residents in the dorm
+	private Student resident;   //student type    //needs to be defined 
+	private static Student[] roster; //array holding the names of residents in the dorm
 	private static int roomTotal; //number of total rooms in the dorm
 	private static int availRoom; //number of available rooms in the dorm
 	
@@ -71,7 +71,7 @@ public class Dorm {
 	
 	public void setRoomTotal(int t){ //sets total rooms in the dorm 
 		roomTotal = t;
-		//roster = new Student[t];
+		roster = new Student[t];
 	}
 	
 	public void setAvailRooms(int a){
