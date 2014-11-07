@@ -1,6 +1,7 @@
 package hip;
 
 public class Dorm {
+<<<<<<< HEAD
 	
 	
 
@@ -13,6 +14,18 @@ public class Dorm {
 		} DATABASE*
 		 
 		public void setCost(RoomType){
+=======
+
+	public class Room {
+		public enum RoomType{STD_SINGLE, LRG_SINGLE, STD_DOUBLE, LRG_DOUBLE, STD_TRIPLE, LRG_TRIPLE, EFFICIENCY} 
+		public static Boolean livable;   //holds current state of particular room's livability status 
+		public static double price;  //semester cost of living for room 
+		public static int num;  //indicates room number 
+	/*	public void setRoomType(){
+		} DATABASE*/
+ 
+		public void setCost(Dorm d){
+>>>>>>> a5f664f12aaeb325d45f14037eb7d09a317b4bd0
 			switch(d.RoomType) {
 				case STD_SINGLE:
 					price=4593; 
@@ -37,6 +50,7 @@ public class Dorm {
 					break; 
 				default: 
 					System.out.println("Error: Invalid Room Type."); 
+<<<<<<< HEAD
 			}
 		}
 		
@@ -44,6 +58,15 @@ public class Dorm {
 			livable = l; 
 		} 
 		public float getCost(){
+=======
+			} 
+				
+		} 
+		public void setLivability(bool l){
+			livable = l; 
+		} 
+		public float getCost(RoomType r){
+>>>>>>> a5f664f12aaeb325d45f14037eb7d09a317b4bd0
 			return price; 
 		} 
 		public Boolean isLivable(){
@@ -53,11 +76,18 @@ public class Dorm {
 			return num; 
 		} 
 			
+<<<<<<< HEAD
 	}*/
 	
 	private static String name; //name of the dorm
 	//private Student resident;  //needs to be defined 
 	private static Student[] roster; //array holding the names of residents in the dorm (should be as type Student)
+=======
+	}
+	private static String name; //name of the dorm
+	private Student resident;   //student type    //needs to be defined 
+	private static Student[] roster; //array holding the names of residents in the dorm
+>>>>>>> a5f664f12aaeb325d45f14037eb7d09a317b4bd0
 	private static int roomTotal; //number of total rooms in the dorm
 	private static int availRoom; //number of available rooms in the dorm
 	
@@ -68,13 +98,21 @@ public class Dorm {
 		setName(n);
 	}
 	
+<<<<<<< HEAD
 	public void setName(String n){ //sets the name of the dorm eg Slowe Hall
+=======
+	public void setName(String n){
+>>>>>>> a5f664f12aaeb325d45f14037eb7d09a317b4bd0
 		name = n;
 	}
 	
 	public void setRoomTotal(int t){ //sets total rooms in the dorm 
 		roomTotal = t;
+<<<<<<< HEAD
 		roster = new Student[t]; //should be student
+=======
+		roster = new Student[t];
+>>>>>>> a5f664f12aaeb325d45f14037eb7d09a317b4bd0
 	}
 	
 	public void setAvailRooms(int a){
@@ -117,7 +155,11 @@ public class Dorm {
 		return roster;
 	}
 
+<<<<<<< HEAD
 	public Student getResident(int r){ //returns the info of the student living in the room
+=======
+	public Student getResident(int r){
+>>>>>>> a5f664f12aaeb325d45f14037eb7d09a317b4bd0
 		return roster[r];
 	}
 }
