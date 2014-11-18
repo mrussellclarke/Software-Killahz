@@ -21,12 +21,7 @@ public class ComDir {
 	public String getName(){
 		return name;
 	}
-	
-<<<<<<< HEAD
 	public Student[] viewRoster(){ //returns array containing name of all residents in order by room
-=======
-	public String[] viewRoster(){ //returns array containing name of all residents in order by room
->>>>>>> a5f664f12aaeb325d45f14037eb7d09a317b4bd0
 		return dorm.getRoster();
 	}
 	
