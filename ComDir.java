@@ -2,8 +2,8 @@ package hip;
 
 public class ComDir {
 	
-	private static String name; //name of the community director
-	private static Dorm dorm; //name of the dorm director is assigned to
+	private String name; //name of the community director
+	private Dorm dorm; //name of the dorm director is assigned to
 	
 	ComDir(Dorm d, String n){
 		setDorm(d);
