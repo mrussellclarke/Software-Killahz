@@ -2,28 +2,21 @@ package hip;
 
 public class Dorm {
 	
-	/*public static class Room {
-		private enum RoomType{STD_SINGLE, LRG_SINGLE, STD_DOUBLE, LRG_DOUBLE, STD_TRIPLE, LRG_TRIPLE, EFFICIENCY} 
-		private static Boolean livable;   //holds current state of particular room's livability status 
-		private static double price;  //semester cost of living for room 
-		private static int num;  //indicates room number 
-	/*	public void setRoomType(){
-		} DATABASE*
-		 
-		public void setCost(RoomType){
+	public enum RoomType{STD_SINGLE, LRG_SINGLE, STD_DOUBLE, LRG_DOUBLE, STD_TRIPLE, LRG_TRIPLE, EFFICIENCY};
 
 	public class Room {
-		public enum RoomType{STD_SINGLE, LRG_SINGLE, STD_DOUBLE, LRG_DOUBLE, STD_TRIPLE, LRG_TRIPLE, EFFICIENCY} 
-		public static Boolean livable;   //holds current state of particular room's livability status 
-		public static double price;  //semester cost of living for room 
-		public static int num;  //indicates room number 
+		RoomType roomtype;
+		//public String RoomType; // = {"STD_SINGLE", "LRG_SINGLE", "STD_DOUBLE", "LRG_DOUBLE", "STD_TRIPLE", "LRG_TRIPLE", "EFFICIENCY"};
+		public Boolean livable;   //holds current state of particular room's livability status 
+		public double price;  //semester cost of living for room 
+		public int num;  //indicates room number 
 	/*	public void setRoomType(){
 		} DATABASE*/
  
-		public void setCost(Dorm d){
-			switch(d.RoomType) {
+		public void setCost(Room r){
+			switch(roomtype) {
 				case STD_SINGLE:
-					price=4593; 
+					price=4593;
 					break; 
 				case LRG_SINGLE: 
 					price=4020; 
@@ -44,14 +37,13 @@ public class Dorm {
 					price=3709.92; 
 					break; 
 				default: 
-					System.out.println("Error: Invalid Room Type.");
+					System.out.println("Error: Invalid Room Type."); 
 			}
-		}
-		
+		} 
 		public void setLivability(Boolean l){
 			livable = l; 
-		}
-		public float getCost(RoomType r){
+		} 
+		public double getCost(RoomType r){
 			return price; 
 		} 
 		public Boolean isLivable(){
@@ -60,12 +52,12 @@ public class Dorm {
 		public int getNum(){
 			return num; 
 		} 
-	}*/
+			
+	}
 	
 	private String name; //name of the dorm
 	//private Student resident;  //needs to be defined 
 	private Student[] roster; //array holding the names of residents in the dorm (should be as type Student)
-	}
 	private int roomTotal; //number of total rooms in the dorm
 	private int availRoom; //number of available rooms in the dorm
 	
@@ -81,7 +73,8 @@ public class Dorm {
 	
 	public void setRoomTotal(int t){ //sets total rooms in the dorm 
 		roomTotal = t;
-		roster = new Student[t]; //should be student}
+		roster = new Student[t]; //should be student
+	}
 	
 	public void setAvailRooms(int a){
 		availRoom = a;
