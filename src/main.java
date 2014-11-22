@@ -72,6 +72,7 @@ public static boolean checkRegistration() throws ParseException
 /*
  * Test output
  * 
+ * 
  * Please input your student ID number(excluding the @ symbol)
 23702538
 Please input your student password.
