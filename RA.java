@@ -29,9 +29,9 @@ public class RA extends Student{
 		return dorm.getRoster();			//Need access to function getRoster()
 	}
 
-	/*
-	public void viewOccupancy(int dorm){
-		System.out.println();
+	
+	public String[] viewOccupancy(int dorm){
+		return dorm.getOccupancy();
 	}
-	*/
+	
 }
