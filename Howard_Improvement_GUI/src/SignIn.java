@@ -79,21 +79,21 @@ public class SignIn {
 				boolean logIn = false;
 				try {
 					logIn = DataConnector.validateLogIn(idNumber, tempString);
+					if (logIn == true) {
+						Student_View_Home homeFrame = new Student_View_Home(idNumber);
+						homeFrame.frmHome.setVisible(true);
+						frmSignIn.dispose();
+					}
+					else {
+						JOptionPane.showMessageDialog(frmSignIn, "Your credentials are not in the database.",
+							    "Incorrect ID or Password.", JOptionPane.PLAIN_MESSAGE);
+					}
 				} catch (NoSuchAlgorithmException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (InvalidKeySpecException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}
-				if (logIn == true) {
-					Student_View_Home homeFrame = new Student_View_Home(idNumber);
-					homeFrame.frmHome.setVisible(true);
-					frmSignIn.dispose();
-				}
-				else {
-					JOptionPane.showMessageDialog(frmSignIn, "Your credentials are not in the database.",
-						    "Incorrect ID or Password.", JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 		});
