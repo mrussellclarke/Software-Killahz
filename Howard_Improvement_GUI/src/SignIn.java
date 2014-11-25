@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 import java.awt.Font;
@@ -13,11 +14,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.sql.SQLException;
 
 
-public class Student_View_SignIn {
+public class SignIn {
 
 	public JFrame frmSignIn;
 	public JPasswordField pwdPassword;
@@ -27,12 +32,14 @@ public class Student_View_SignIn {
 
 	/**
 	 * Launch the application.
+	 * @throws SQLException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
+		DataConnector.main(args);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Student_View_SignIn window = new Student_View_SignIn();
+					SignIn window = new SignIn();
 					window.frmSignIn.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +51,7 @@ public class Student_View_SignIn {
 	/**
 	 * Create the application.
 	 */
-	public Student_View_SignIn() {
+	public SignIn() {
 		initialize();
 	}
 
@@ -68,9 +75,18 @@ public class Student_View_SignIn {
 			public void actionPerformed(ActionEvent e) {
 				idNumber = textField.getText();
 				password = pwdPassword.getPassword();
-				Student_View_Home homeFrame = new Student_View_Home();
-				homeFrame.frmHome.setVisible(true);
-				frmSignIn.dispose();
+				String tempString = new String(password);
+				boolean logIn = false;
+				logIn = DataConnector.validateLogIn(idNumber, tempString);
+				if (logIn == true) {
+					Student_View_Home homeFrame = new Student_View_Home(idNumber);
+					homeFrame.frmHome.setVisible(true);
+					frmSignIn.dispose();
+				}
+				else {
+					JOptionPane.showMessageDialog(frmSignIn, "Your credentials are not in the database.",
+						    "Incorrect ID or Password.", JOptionPane.PLAIN_MESSAGE);
+				}
 			}
 		});
 		btnLogIn.setFont(new Font("Arial", Font.PLAIN, 13));

@@ -1,26 +1,25 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.Font;
+
 import javax.swing.border.LineBorder;
+
 import java.awt.Color;
 
 import javax.swing.ListSelectionModel;
-
-import javax.swing.JList;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
-
 import javax.swing.JLabel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
+import java.sql.SQLException;
+
 import javax.swing.JTextArea;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
@@ -31,11 +30,14 @@ public class Student_View_Home {
 	public JFrame frmHome;
 	private JTable table;
 	public static String home;
+	public String ID;
 
 	/**
 	 * Launch the application.
+	 * @throws SQLException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
+		DataConnector.main(args);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -52,6 +54,11 @@ public class Student_View_Home {
 	 * Create the application.
 	 */
 	public Student_View_Home() {
+		initialize();
+	}
+	
+	public Student_View_Home(String idNumber) {
+		ID = idNumber;
 		initialize();
 	}
 
@@ -108,7 +115,7 @@ public class Student_View_Home {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				home = "View RSVP Points";
-				Student_View_Semester_Menu semesterFrame = new Student_View_Semester_Menu();
+				Semester_Menu semesterFrame = new Semester_Menu();
 				semesterFrame.frmSemesterMenu.setVisible(true);
 				frmHome.dispose();
 			}
@@ -122,7 +129,7 @@ public class Student_View_Home {
 		btnSubmitOrgDocs.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Student_View_Semester_Menu semesterFrame = new Student_View_Semester_Menu();
+				Semester_Menu semesterFrame = new Semester_Menu();
 				semesterFrame.frmSemesterMenu.setVisible(true);
 				home = "Submit Org Docs";
 				frmHome.dispose();
@@ -137,7 +144,7 @@ public class Student_View_Home {
 		btnHousingAssignment.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent a) {
-				Student_View_Semester_Menu semesterFrame = new Student_View_Semester_Menu();
+				Semester_Menu semesterFrame = new Semester_Menu();
 				semesterFrame.frmSemesterMenu.setVisible(true);
 				home = "Housing Assignment";
 				frmHome.dispose();
@@ -152,7 +159,7 @@ public class Student_View_Home {
 		btnCheckIn.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent a) {
-				Student_View_Semester_Menu semesterFrame = new Student_View_Semester_Menu();
+				Semester_Menu semesterFrame = new Semester_Menu();
 				semesterFrame.frmSemesterMenu.setVisible(true);
 				home = "Check In";
 				frmHome.dispose();
@@ -178,7 +185,7 @@ public class Student_View_Home {
 		btnSignOut.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent a) {
-				Student_View_SignIn signInFrame = new Student_View_SignIn();
+				SignIn signInFrame = new SignIn();
 				signInFrame.frmSignIn.setVisible(true);
 				frmHome.dispose();
 			}
@@ -202,7 +209,7 @@ public class Student_View_Home {
 		list.setFont(new Font("Arial", Font.PLAIN, 13));
 		list.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
-		JLabel lblWelcomeSoftwareKillhaz = new JLabel("Welcome, Software Killhaz!");
+		JLabel lblWelcomeSoftwareKillhaz = new JLabel("Welcome, " + DataConnector.getName(ID));
 		lblWelcomeSoftwareKillhaz.setForeground(new Color(0, 0, 204));
 		lblWelcomeSoftwareKillhaz.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWelcomeSoftwareKillhaz.setFont(new Font("Arial", Font.BOLD, 20));

@@ -10,7 +10,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 
 
-public class Student_View_Semester_Menu extends Student_View_Home {
+public class Semester_Menu extends Student_View_Home {
 
 	public JFrame frmSemesterMenu;
 
@@ -21,7 +21,7 @@ public class Student_View_Semester_Menu extends Student_View_Home {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Student_View_Semester_Menu window = new Student_View_Semester_Menu();
+					Semester_Menu window = new Semester_Menu();
 					window.frmSemesterMenu.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +33,7 @@ public class Student_View_Semester_Menu extends Student_View_Home {
 	/**
 	 * Create the application.
 	 */
-	public Student_View_Semester_Menu() {
+	public Semester_Menu() {
 		initialize();
 	}
 
@@ -104,8 +104,5 @@ public class Student_View_Semester_Menu extends Student_View_Home {
 		btnBack.setForeground(new Color(0, 0, 204));
 		btnBack.setBounds(100, 146, 117, 29);
 		frmSemesterMenu.getContentPane().add(btnBack);
-		
-		//ActionListener myButtonListener = new Button_Listener();
-		//btnOkButton.addActionListener(myButtonListener);
 	}
 }
