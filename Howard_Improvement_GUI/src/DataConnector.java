@@ -1,3 +1,5 @@
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -36,6 +38,8 @@ public class DataConnector {
 	private static String url;
 	private static Properties props = new Properties();
 	private static Connection conn;
+	
+	private static PBKDF2Hash encrypt = new PBKDF2Hash();
 	
 	private static User[] user;
 	
@@ -84,7 +88,7 @@ public class DataConnector {
 				String middleInitial = rs2.getString("MiddleInitial");
 				String lastName = rs2.getString("LastName");
 				String id = rs2.getString("ID");
-				String password = rs2.getString("Password");
+				String password = rs2.getString("Password").replaceAll("\\s+","");;
 				String gender = rs2.getString("Gender");
 				String phoneNumber = rs2.getString("PhoneNumber");
 				String email = rs2.getString("Email");
@@ -95,9 +99,9 @@ public class DataConnector {
 		}
 	}
 	
-	public static boolean validateLogIn(String newID, String newPassword) {
+	public static boolean validateLogIn(String newID, String newPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		for (int x = 0; x < user.length; x++) {
-			if ((user[x].user_id.equals(newID)) && (user[x].user_password.equals(newPassword))) {
+			if ((user[x].user_id.equals(newID)) && (encrypt.validatePassword(newPassword,user[x].user_password))) {
 				return true;
 			}
 		}

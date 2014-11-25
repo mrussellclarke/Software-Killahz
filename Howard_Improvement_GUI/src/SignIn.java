@@ -77,7 +77,15 @@ public class SignIn {
 				password = pwdPassword.getPassword();
 				String tempString = new String(password);
 				boolean logIn = false;
-				logIn = DataConnector.validateLogIn(idNumber, tempString);
+				try {
+					logIn = DataConnector.validateLogIn(idNumber, tempString);
+				} catch (NoSuchAlgorithmException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (InvalidKeySpecException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				if (logIn == true) {
 					Student_View_Home homeFrame = new Student_View_Home(idNumber);
 					homeFrame.frmHome.setVisible(true);
