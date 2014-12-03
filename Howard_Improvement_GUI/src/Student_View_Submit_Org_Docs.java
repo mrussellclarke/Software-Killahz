@@ -14,6 +14,7 @@ import javax.swing.JTextArea;
 public class Student_View_Submit_Org_Docs {
 
 	public JFrame frmSubmitOrgDocs;
+	public String ID;
 
 	/**
 	 * Launch the application.
@@ -37,6 +38,11 @@ public class Student_View_Submit_Org_Docs {
 	public Student_View_Submit_Org_Docs() {
 		initialize();
 	}
+	
+	public Student_View_Submit_Org_Docs(String idNumber) {
+		ID = idNumber;
+		initialize();
+	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -44,6 +50,7 @@ public class Student_View_Submit_Org_Docs {
 	private void initialize() {
 		frmSubmitOrgDocs = new JFrame();
 		frmSubmitOrgDocs.setResizable(false);
+		frmSubmitOrgDocs.setLocationRelativeTo(null);
 		frmSubmitOrgDocs.getContentPane().setBackground(new Color(255, 51, 51));
 		frmSubmitOrgDocs.setTitle("Submit Org Docs");
 		frmSubmitOrgDocs.getContentPane().setLayout(null);
@@ -61,7 +68,7 @@ public class Student_View_Submit_Org_Docs {
 		btnOk.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Student_View_Home homeFrame = new Student_View_Home();
+				Student_View_Home homeFrame = new Student_View_Home(ID);
 				homeFrame.frmHome.setVisible(true);
 				frmSubmitOrgDocs.dispose();
 			}

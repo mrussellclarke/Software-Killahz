@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/December-2014-Calendar-Printable.jpg</name>
+			<type>1</type>
+			<location>/Users/alyssabullock/Desktop/Fall 2014/SYCS_375/December-2014-Calendar-Printable.jpg</location>
+		</link>
+	</linkedResources>
 </projectDescription>

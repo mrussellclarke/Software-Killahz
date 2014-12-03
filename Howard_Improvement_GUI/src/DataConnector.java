@@ -2,6 +2,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,9 +18,10 @@ class User {
 	public String user_phoneNumber;
 	public String user_email;
 	public String user_dorm;
+	public char user_type;
 	
 	User(String firstName, String middleInitial, String lastName, String id, String password,
-			String gender, String phoneNumber, String email, String dorm) {
+			String gender, String phoneNumber, String email, String dorm, char type) {
 		user_firstName = firstName;
 		user_middleInitial = middleInitial;
 		user_lastName = lastName;
@@ -29,6 +31,7 @@ class User {
 		user_phoneNumber = phoneNumber;
 		user_email = email;
 		user_dorm = dorm;
+		user_type = type;
 	}
 };
 
@@ -93,10 +96,40 @@ public class DataConnector {
 				String phoneNumber = rs2.getString("PhoneNumber");
 				String email = rs2.getString("Email");
 				String dorm = rs2.getString("Dorm");
+				char type = 'S';
 				user[x] = new User(firstName, middleInitial, lastName, id, password,
-						gender, phoneNumber, email, dorm);
+						gender, phoneNumber, email, dorm, type);
 			}
 		}
+		/*
+		String query3 = "SELECT COUNT(*) FROM \"Admin\"";
+		Statement stmt3 = conn.createStatement();
+		ResultSet rs3 = stmt3.executeQuery(query3);
+		rs3.next();
+		String v2 = rs3.getString(1);
+		
+		String query4 = "SELECT * FROM \"Admin\"";
+		Statement stmt4 = conn.createStatement();
+		ResultSet rs4 = stmt4.executeQuery(query4);
+		
+		user = new User[Integer.parseInt(v+v2)];
+		
+		for (int x = v; x < user.length; x++) {
+			if (rs4.next()) {
+				String firstName = rs4.getString("FirstName");
+				String middleInitial = rs4.getString("MiddleInitial");
+				String lastName = rs4.getString("LastName");
+				String id = rs4.getString("ID");
+				String password = rs4.getString("Password").replaceAll("\\s+","");;
+				String gender = rs4.getString("Gender");
+				String phoneNumber = rs4.getString("PhoneNumber");
+				String email = rs4.getString("Email");
+				String dorm = rs4.getString("Dorm");
+				char type = 'A';
+				user[x] = new User(firstName, middleInitial, lastName, id, password,
+						gender, phoneNumber, email, dorm, type);
+			}
+		}*/
 	}
 	
 	public static boolean validateLogIn(String newID, String newPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
@@ -116,5 +149,15 @@ public class DataConnector {
 			}
 		}
 		return name;
+	}
+	
+	public static String getDorm(String idNumber) {
+		String dorm = " ";
+		for (int x = 0; x < user.length; x++) {
+			if (user[x].user_id.equals(idNumber)) {
+				dorm = user[x].user_dorm;
+			}
+		}
+		return dorm;
 	}
 }

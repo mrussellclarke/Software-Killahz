@@ -29,6 +29,7 @@ public class SignIn {
 	private JTextField textField;
 	public String idNumber;
 	public char[] password;
+	public String name;
 
 	/**
 	 * Launch the application.
@@ -60,16 +61,17 @@ public class SignIn {
 	 */
 	private void initialize() {
 		frmSignIn = new JFrame();
-		frmSignIn.getContentPane().setBackground(new Color(255, 51, 51));
+		frmSignIn.getContentPane().setBackground(new Color(0, 0, 102));
 		frmSignIn.setFont(new Font("Arial", Font.PLAIN, 13));
 		frmSignIn.getContentPane().setFont(new Font("Arial", Font.PLAIN, 13));
 		frmSignIn.setTitle("Sign In");
 		frmSignIn.setBounds(100, 100, 450, 300);
+		frmSignIn.setLocationRelativeTo(null);
 		frmSignIn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSignIn.getContentPane().setLayout(null);
 		
 		JButton btnLogIn = new JButton("Log In");
-		btnLogIn.setForeground(new Color(0, 0, 204));
+		btnLogIn.setForeground(new Color(0, 0, 102));
 		btnLogIn.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -80,6 +82,7 @@ public class SignIn {
 				try {
 					logIn = DataConnector.validateLogIn(idNumber, tempString);
 					if (logIn == true) {
+						name = DataConnector.getName(idNumber);
 						Student_View_Home homeFrame = new Student_View_Home(idNumber);
 						homeFrame.frmHome.setVisible(true);
 						frmSignIn.dispose();
@@ -112,17 +115,17 @@ public class SignIn {
 		textField.setColumns(10);
 		
 		JLabel lblIdNumber = new JLabel("ID Number:");
-		lblIdNumber.setForeground(new Color(0, 0, 204));
+		lblIdNumber.setForeground(new Color(255, 255, 255));
 		lblIdNumber.setBounds(108, 93, 108, 16);
 		frmSignIn.getContentPane().add(lblIdNumber);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setForeground(new Color(0, 0, 204));
+		lblPassword.setForeground(new Color(255, 255, 255));
 		lblPassword.setBounds(108, 132, 89, 16);
 		frmSignIn.getContentPane().add(lblPassword);
 		
 		JButton btnForgotPassword = new JButton("Forgot Password?");
-		btnForgotPassword.setForeground(new Color(0, 0, 204));
+		btnForgotPassword.setForeground(new Color(0, 0, 102));
 		btnForgotPassword.setBounds(186, 166, 144, 29);
 		frmSignIn.getContentPane().add(btnForgotPassword);
 		
@@ -133,7 +136,7 @@ public class SignIn {
 				frmSignIn.dispose();
 			}
 		});
-		btnExit.setForeground(new Color(0, 0, 204));
+		btnExit.setForeground(new Color(0, 0, 102));
 		btnExit.setFont(new Font("Arial", Font.PLAIN, 13));
 		btnExit.setBounds(327, 243, 117, 29);
 		frmSignIn.getContentPane().add(btnExit);
