@@ -45,6 +45,7 @@ public class DataConnector {
 	private static PBKDF2Hash encrypt = new PBKDF2Hash();
 	
 	private static User[] user;
+	private static String[] availRooms;
 	
 	public static void main(String[] args) throws SQLException {
 		
@@ -91,7 +92,7 @@ public class DataConnector {
 				String middleInitial = rs2.getString("MiddleInitial");
 				String lastName = rs2.getString("LastName");
 				String id = rs2.getString("ID");
-				String password = rs2.getString("Password").replaceAll("\\s+","");;
+				String password = rs2.getString("Password").replaceAll("\\s+","");
 				String gender = rs2.getString("Gender");
 				String phoneNumber = rs2.getString("PhoneNumber");
 				String email = rs2.getString("Email");
@@ -101,6 +102,25 @@ public class DataConnector {
 						gender, phoneNumber, email, dorm, type);
 			}
 		}
+		/*
+		String query4 = "SELECT COUNT(*) FROM \"Dorms\"";
+		Statement stmt4 = conn.createStatement();
+		ResultSet rs4 = stmt4.executeQuery(query4);
+		rs4.next();
+		String r = rs4.getString(1);
+		
+		String query3 = "SELECT * FROM \"Dorms\"";
+		Statement stmt3 = conn.createStatement();
+		ResultSet rs3 = stmt3.executeQuery(query3);
+		
+		availRooms = new String[Integer.parseInt(r)];
+		
+		for(int i = 0; i < availRooms.length; i++) {
+			if(rs4.next()){
+				//String 
+			}
+		}
+		*/
 		/*
 		String query3 = "SELECT COUNT(*) FROM \"Admin\"";
 		Statement stmt3 = conn.createStatement();
@@ -159,5 +179,9 @@ public class DataConnector {
 			}
 		}
 		return dorm;
+	}
+	
+	public static String[] getAvailRooms(){
+		return availRooms;
 	}
 }

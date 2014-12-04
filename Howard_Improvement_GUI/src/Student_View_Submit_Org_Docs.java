@@ -51,7 +51,7 @@ public class Student_View_Submit_Org_Docs {
 		frmSubmitOrgDocs = new JFrame();
 		frmSubmitOrgDocs.setResizable(false);
 		frmSubmitOrgDocs.setLocationRelativeTo(null);
-		frmSubmitOrgDocs.getContentPane().setBackground(new Color(255, 51, 51));
+		frmSubmitOrgDocs.getContentPane().setBackground(new Color(204, 204, 204));
 		frmSubmitOrgDocs.setTitle("Submit Org Docs");
 		frmSubmitOrgDocs.getContentPane().setLayout(null);
 		
@@ -59,12 +59,13 @@ public class Student_View_Submit_Org_Docs {
 		frmtdtxtfldListOrganizationsseparate.setLineWrap(true);
 		frmtdtxtfldListOrganizationsseparate.setWrapStyleWord(true);
 		frmtdtxtfldListOrganizationsseparate.setText("List Organizations (separate with a comma).");
-		frmtdtxtfldListOrganizationsseparate.setForeground(new Color(0, 0, 204));
+		frmtdtxtfldListOrganizationsseparate.setForeground(new Color(0, 0, 102));
 		frmtdtxtfldListOrganizationsseparate.setFont(new Font("Arial", Font.PLAIN, 13));
 		frmtdtxtfldListOrganizationsseparate.setBounds(70, 33, 311, 191);
 		frmSubmitOrgDocs.getContentPane().add(frmtdtxtfldListOrganizationsseparate);
 		
 		JButton btnOk = new JButton("OK");
+		btnOk.setForeground(new Color(0, 0, 102));
 		btnOk.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {

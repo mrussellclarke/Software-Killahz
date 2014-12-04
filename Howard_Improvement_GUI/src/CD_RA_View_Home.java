@@ -50,7 +50,7 @@ public class CD_RA_View_Home {
 	 */
 	private void initialize() {
 		frmHome2 = new JFrame();
-		frmHome2.getContentPane().setBackground(new Color(255, 51, 51));
+		frmHome2.getContentPane().setBackground(new Color(204, 204, 204));
 		frmHome2.getContentPane().setFont(new Font("Arial", Font.PLAIN, 13));
 		frmHome2.setResizable(false);
 		frmHome2.setTitle("Home");
@@ -87,7 +87,7 @@ public class CD_RA_View_Home {
 		frmHome2.getContentPane().add(lblWelcomeAdministrator);
 		
 		JLabel lblAnnouncements = new JLabel("Announcements");
-		lblAnnouncements.setBounds(17, 314, 150, 16);
+		lblAnnouncements.setBounds(17, 441, 150, 16);
 		lblAnnouncements.setForeground(new Color(0, 0, 204));
 		lblAnnouncements.setFont(new Font("Arial", Font.BOLD, 13));
 		frmHome2.getContentPane().add(lblAnnouncements);
@@ -132,21 +132,15 @@ public class CD_RA_View_Home {
 		scrollPane_1.setBounds(17, 469, 286, 92);
 		frmHome2.getContentPane().add(scrollPane_1);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setWrapStyleWord(true);
-		textArea.setToolTipText("");
-		textArea.setText("This is where the Announcements would go. I am working on making the calendar not look like a terrible mess. Other than that all of the buttons work except for the Select Assignment and the Check In. Also I am going to test for the different semester selections will show different information. Also the color choice was just because I was sick of looking at a whole bunch of gray. I hope you guys are reading these Announcements or else all of this work I'm putting into this section will have been for nothing so be considerate and take a minute to read this. Unless I've written too much and you can't even see it because we all know you are all most likely too lazy to scroll. I am now finished.");
-		textArea.setLineWrap(true);
-		textArea.setForeground(new Color(0, 0, 204));
-		textArea.setFont(new Font("Arial", Font.PLAIN, 13));
-		textArea.setBorder(new LineBorder(new Color(0, 0, 0)));
-		scrollPane_1.setViewportView(textArea);
-		
-		JLabel label = new JLabel("Urgent Notifications");
-		label.setForeground(new Color(0, 0, 204));
-		label.setFont(new Font("Arial", Font.BOLD, 13));
-		label.setBounds(17, 451, 150, 16);
-		frmHome2.getContentPane().add(label);
+		JTextArea txtrThisIsWhere = new JTextArea();
+		txtrThisIsWhere.setWrapStyleWord(true);
+		txtrThisIsWhere.setToolTipText("");
+		txtrThisIsWhere.setText("This is where the Announcements would go.");
+		txtrThisIsWhere.setLineWrap(true);
+		txtrThisIsWhere.setForeground(new Color(0, 0, 204));
+		txtrThisIsWhere.setFont(new Font("Arial", Font.PLAIN, 13));
+		txtrThisIsWhere.setBorder(new LineBorder(new Color(0, 0, 0)));
+		scrollPane_1.setViewportView(txtrThisIsWhere);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -154,19 +148,21 @@ public class CD_RA_View_Home {
 		frmHome2.getContentPane().add(scrollPane_1);
 		
 		JTextArea textArea2 = new JTextArea();
-		textArea.setWrapStyleWord(true);
-		textArea.setToolTipText("");
-		textArea.setText("This is where the Announcements would go. I am working on making the calendar not look like a terrible mess. Other than that all of the buttons work except for the Select Assignment and the Check In. Also I am going to test for the different semester selections will show different information. Also the color choice was just because I was sick of looking at a whole bunch of gray. I hope you guys are reading these Announcements or else all of this work I'm putting into this section will have been for nothing so be considerate and take a minute to read this. Unless I've written too much and you can't even see it because we all know you are all most likely too lazy to scroll. I am now finished.");
-		textArea.setLineWrap(true);
-		textArea.setForeground(new Color(0, 0, 204));
-		textArea.setFont(new Font("Arial", Font.PLAIN, 13));
-		textArea.setBorder(new LineBorder(new Color(0, 0, 0)));
-		scrollPane_1.setViewportView(textArea);
+		txtrThisIsWhere.setWrapStyleWord(true);
+		txtrThisIsWhere.setToolTipText("");
+		txtrThisIsWhere.setText("This is where the Announcements would go. I am working on making the calendar not look like a terrible mess. Other than that all of the buttons work except for the Select Assignment and the Check In. Also I am going to test for the different semester selections will show different information. Also the color choice was just because I was sick of looking at a whole bunch of gray. I hope you guys are reading these Announcements or else all of this work I'm putting into this section will have been for nothing so be considerate and take a minute to read this. Unless I've written too much and you can't even see it because we all know you are all most likely too lazy to scroll. I am now finished.");
+		txtrThisIsWhere.setLineWrap(true);
+		txtrThisIsWhere.setForeground(new Color(0, 0, 204));
+		txtrThisIsWhere.setFont(new Font("Arial", Font.PLAIN, 13));
+		txtrThisIsWhere.setBorder(new LineBorder(new Color(0, 0, 0)));
+		scrollPane_1.setViewportView(txtrThisIsWhere);
 		
 		JLabel label2 = new JLabel("Dorms");
-		label.setForeground(new Color(0, 0, 204));
-		label.setFont(new Font("Arial", Font.BOLD, 13));
-		label.setBounds(17, 200, 150, 16);
-		frmHome2.getContentPane().add(label);
+		
+		JLabel label_1 = new JLabel("Announcements");
+		label_1.setForeground(new Color(0, 0, 204));
+		label_1.setFont(new Font("Arial", Font.BOLD, 13));
+		label_1.setBounds(17, 302, 150, 16);
+		frmHome2.getContentPane().add(label_1);
 	}
 }

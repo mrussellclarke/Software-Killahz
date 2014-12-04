@@ -8,9 +8,14 @@ public class Student_Temp {
 		if(isValidated() == true) {
 			
 		}
+		//if (isCheckedIn() == true)
 	}
 	
 	public boolean isValidated() {
 		return valid;
 	}
+	/*
+	public boolean isCheckIn() {
+		
+	}*/
 }

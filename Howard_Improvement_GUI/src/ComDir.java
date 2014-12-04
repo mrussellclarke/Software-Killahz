@@ -47,7 +47,7 @@ public class ComDir {
 		else*/
 		{
 			if(dorm.getResident(roomNum) == null){
-				dorm.setResident(int id);
+				dorm.setResident(String id);
 				System.out.println(name + " is now residing in room " + roomNum);
 			}
 			else

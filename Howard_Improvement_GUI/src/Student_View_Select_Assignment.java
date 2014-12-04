@@ -68,6 +68,8 @@ public class Student_View_Select_Assignment {
 		frmSelectAssignment.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSelectAssignment.getContentPane().setLayout(null);
 		
+
+		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(301, 490, 244, 35);
 		comboBox.setForeground(new Color(0, 0, 102));
@@ -111,7 +113,7 @@ public class Student_View_Select_Assignment {
 		
 		BufferedImage wPic = null;
 		try {
-			wPic = ImageIO.read(this.getClass().getResource("December-2014-Calendar-Printable.jpg"));
+			wPic = ImageIO.read(this.getClass().getResource("Slowe_2.jpg"));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

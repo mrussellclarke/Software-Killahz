@@ -106,6 +106,7 @@ public class Student_View_Home {
 		Student_Temp student = new Student_Temp(ID);
 		
 		JRadioButton rdbtnValidated = new JRadioButton("Validated");
+		rdbtnValidated.setEnabled(false);
 		rdbtnValidated.setSelected(true);
 		if (rdbtnValidated.isSelected() == true)
 		{
@@ -121,6 +122,7 @@ public class Student_View_Home {
 		frmHome.getContentPane().add(rdbtnValidated);
 		
 		JRadioButton rdbtnRsvpDeposit = new JRadioButton("RSVP Deposit");
+		rdbtnRsvpDeposit.setEnabled(false);
 		rdbtnRsvpDeposit.setBounds(175, 197, 128, 23);
 		rdbtnRsvpDeposit.setForeground(new Color(0, 0, 102));
 		rdbtnRsvpDeposit.setFont(new Font("Arial", Font.PLAIN, 13));

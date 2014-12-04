@@ -105,7 +105,7 @@ public class Semester_Menu extends Student_View_Home {
 		btnBack.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Student_View_Home homeFrame = new Student_View_Home();
+				Student_View_Home homeFrame = new Student_View_Home(ID);
 				homeFrame.frmHome.setVisible(true);
 				frmSemesterMenu.dispose();
 			}

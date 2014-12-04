@@ -85,6 +85,7 @@ public class Student_View_RSVP_Points {
 		rdbtnNewRadioButton.setFont(new Font("Arial", Font.PLAIN, 13));
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("3.50 - 3.79 (18 pts)");
+		rdbtnNewRadioButton_1.setEnabled(false);
 		rdbtnNewRadioButton_1.setSelected(true);
 		counter+=18;
 		rdbtnNewRadioButton_1.setBounds(6, 56, 142, 23);
@@ -193,6 +194,7 @@ public class Student_View_RSVP_Points {
 		rdbtnNewRadioButton_12.setFont(new Font("Arial", Font.PLAIN, 13));
 		
 		JRadioButton rdbtnNewRadioButton_13 = new JRadioButton("Senior (90 - above) (4 pts)");
+		rdbtnNewRadioButton_13.setEnabled(false);
 		rdbtnNewRadioButton_13.setSelected(true);
 		counter+=4;
 		rdbtnNewRadioButton_13.setBounds(6, 133, 415, 23);
@@ -222,6 +224,7 @@ public class Student_View_RSVP_Points {
 		lblDistanceFromCampus.setFont(new Font("Arial", Font.BOLD, 13));
 		
 		JRadioButton rdbtnNewCheckBox = new JRadioButton("Within 25 mi (5 pts)");
+		rdbtnNewCheckBox.setEnabled(false);
 		rdbtnNewCheckBox.setSelected(true);
 		counter+=5;
 		rdbtnNewCheckBox.setBounds(2, 33, 145, 23);
@@ -263,6 +266,7 @@ public class Student_View_RSVP_Points {
 		panel_3.add(lblCommunity);
 		
 		JRadioButton rdbtnUniversityOrganization = new JRadioButton("University Organization (2 pts)");
+		rdbtnUniversityOrganization.setEnabled(false);
 		rdbtnUniversityOrganization.setSelected(true);
 		counter+=10;
 		rdbtnUniversityOrganization.setForeground(new Color(0, 0, 102));
