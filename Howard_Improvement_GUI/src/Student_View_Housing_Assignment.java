@@ -61,7 +61,17 @@ public class Student_View_Housing_Assignment {
 		txtAssignment = new JTextField();
 		txtAssignment.setForeground(new Color(0, 0, 102));
 		txtAssignment.setEditable(false);
-		txtAssignment.setText("You have not selected an assignment for this semester.");
+		
+		//String room = DataConnector.getRoom(ID);
+		//String dorm = DataConnector.getDorm(ID);
+		
+		//if (room == null) {
+			txtAssignment.setText("You have not selected an assignment for this semester.");
+		//}
+		//else {
+		//	txtAssignment.setText("You are in " + dorm + " in room " + room);
+		//}
+		
 		txtAssignment.setFont(new Font("Arial", Font.PLAIN, 13));
 		txtAssignment.setBounds(32, 121, 382, 28);
 		frmHousingAssignment.getContentPane().add(txtAssignment);

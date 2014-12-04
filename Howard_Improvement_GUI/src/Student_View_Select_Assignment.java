@@ -73,7 +73,7 @@ public class Student_View_Select_Assignment {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(301, 490, 244, 35);
 		comboBox.setForeground(new Color(0, 0, 102));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"301", "303", "304", "309", "320", "321", "322", "323", "324", "325"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"201", "203", "204", "209", "220", "221", "222", "223", "224", "225"}));
 		comboBox.setFont(new Font("Arial", Font.PLAIN, 13));
 		frmSelectAssignment.getContentPane().add(comboBox);
 		
@@ -84,6 +84,7 @@ public class Student_View_Select_Assignment {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(frmSelectAssignment, "You have successfully chosen your room.",
 					    "Room Selection", JOptionPane.PLAIN_MESSAGE);
+				DataConnector.getAvailRooms();
 				Student_View_Housing_Assignment housingAssignmentFrame = new Student_View_Housing_Assignment(ID);
 				housingAssignmentFrame.frmHousingAssignment.setVisible(true);
 				frmSelectAssignment.dispose();

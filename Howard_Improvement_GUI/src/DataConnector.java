@@ -35,6 +35,21 @@ class User {
 	}
 };
 
+class Room {
+	public String room_dormName;
+	public String room_number;
+	public String room_type;
+	public int room_occupant;
+
+	
+	Room(String dormName, String number, String type, int occupant) {
+		room_dormName = dormName;
+		room_number = number;
+		room_type = type;
+		room_occupant = occupant;
+	}
+};
+
 public class DataConnector {
 	
 	private static DataConnector instance = null;
@@ -45,7 +60,7 @@ public class DataConnector {
 	private static PBKDF2Hash encrypt = new PBKDF2Hash();
 	
 	private static User[] user;
-	private static String[] availRooms;
+	private static Room[] availRooms;
 	
 	public static void main(String[] args) throws SQLException {
 		
@@ -102,7 +117,7 @@ public class DataConnector {
 						gender, phoneNumber, email, dorm, type);
 			}
 		}
-		/*
+		
 		String query4 = "SELECT COUNT(*) FROM \"Dorms\"";
 		Statement stmt4 = conn.createStatement();
 		ResultSet rs4 = stmt4.executeQuery(query4);
@@ -113,14 +128,18 @@ public class DataConnector {
 		Statement stmt3 = conn.createStatement();
 		ResultSet rs3 = stmt3.executeQuery(query3);
 		
-		availRooms = new String[Integer.parseInt(r)];
+		availRooms = new Room[Integer.parseInt(r)];
 		
 		for(int i = 0; i < availRooms.length; i++) {
 			if(rs4.next()){
-				//String 
+				String dormName = rs4.getString("Name");
+				String number = rs4.getString("RoomNum");
+				String type = rs4.getString("Room Type");
+				int occupant = Integer.parseInt(rs4.getString("Occupant"));
+				availRooms[i] = new Room(dormName, number, type, occupant);
 			}
 		}
-		*/
+		
 		/*
 		String query3 = "SELECT COUNT(*) FROM \"Admin\"";
 		Statement stmt3 = conn.createStatement();
@@ -181,7 +200,37 @@ public class DataConnector {
 		return dorm;
 	}
 	
-	public static String[] getAvailRooms(){
-		return availRooms;
+	public static String[] getAvailRooms() {
+		String[] currAvailRooms = new String[availRooms.length];
+		int counter = 0;
+		for (int x = 0; x < currAvailRooms.length; x++) {
+			if (Integer.toString(availRooms[x].room_occupant) == null) {
+				currAvailRooms[counter] = availRooms[x].room_number;
+				counter++;
+			}
+		}
+		return currAvailRooms;
+	}
+	
+	public static void setOccupancy(String roomNumber, String idNumber) throws SQLException {
+		String query5 = "UPDATE \"Dorms\" SET \"Occupant\" = (idNumber) WHERE \"RoomNum\" = 'roomNumber'";
+		Statement stmt5 = conn.createStatement();
+		ResultSet rs5 = stmt5.executeQuery(query5);
+		
+		for (int x = 0; x < availRooms.length; x++) {
+			if (availRooms[x].room_number.equals(roomNumber)) {
+				 availRooms[x].room_occupant = Integer.parseInt(idNumber);
+			}
+		}
+	}
+	
+	public static String getRoom(String idNumber) {
+		String number = " ";
+		for (int x = 0; x < availRooms.length; x++) {
+			if (availRooms[x].room_occupant == (Integer.parseInt(idNumber))) {
+				number = availRooms[x].room_number;
+			}
+		}
+		return number;
 	}
 }
